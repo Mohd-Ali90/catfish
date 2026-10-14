@@ -1,3 +1,19 @@
 body{
     background-color: gainsboro;
 }
+
+.mainRoute {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 200px;
+}
+
+.mainTile {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    border: 3px solid black;
+    font-size: 32px;
+    gap: 20 px;
+}
