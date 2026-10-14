@@ -4,16 +4,32 @@ body{
 
 .mainRoute {
     display: flex;
-    flex-wrap: wrap;
-    height: 200px;
-    width: 200px;
+    height: 100px;
 }
 
-.mainTile {
-    display: flex;
-    flex-direction: row;
-    width: 30%;
+.Tile {
+    display:inline-block;
+    width: 100px;
     border: 3px solid black;
     font-size: 32px;
-    gap: 20 px;
 }
+
+
+.secondRouteTile {
+    flex-direction: column;
+    display:flex;
+    width: 100px;
+    border: 3px solid black;
+    font-size: 32px;
+    height: 95px;
+}
+
+.thirdRouteTile {
+    flex-direction: column;
+    display:flex;
+    width: 100px;
+    border: 3px solid black;
+    font-size: 32px;
+    height: 95px;
+}
+
