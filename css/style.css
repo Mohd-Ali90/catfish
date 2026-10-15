@@ -4,32 +4,69 @@ body{
 
 .mainRoute {
     display: flex;
-    height: 100px;
+    flex-direction: row;
 }
 
-.Tile {
+.tile {
     display:inline-block;
     width: 100px;
-    border: 3px solid black;
+    outline: 3px solid black;
     font-size: 32px;
 }
 
 
-.secondRouteTile {
+.first-route{
+display: flex;
+flex-direction: column-reverse;
+margin: 0 0 4px 208px;
+}
+
+
+.second-route{
+display: flex;
+flex-direction: column;
+margin: 4px 0 0 519px;
+}
+
+
+.third-route{
+    display: flex;
+flex-direction: column-reverse;
+margin: 0 0 4px 420px;
+}
+
+.upper-routes{
+display: flex;
+position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+#main-div{
+    display: flex;
     flex-direction: column;
-    display:flex;
-    width: 100px;
-    border: 3px solid black;
-    font-size: 32px;
-    height: 95px;
+    width: 100vw
 }
 
-.thirdRouteTile {
-    flex-direction: column;
-    display:flex;
-    width: 100px;
-    border: 3px solid black;
-    font-size: 32px;
-    height: 95px;
+.first-route{
+    display: flex;
+    flex-direction: row;
 }
 
+.second-route{
+    margin-left: 106px
+}
+
+.third-route{
+    margin-left:319px
+}
+    */
