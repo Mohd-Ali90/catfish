@@ -35,7 +35,18 @@ flex-direction: column-reverse;
 margin: 0 0 4px 420px;
 }
 
+.fourth-route{
+    display: flex;
+flex-direction: column;
+margin: 4px 0 0px 421px;
+}
+
 .upper-routes{
+display: flex;
+position: relative;
+}
+
+.lower-routes{
 display: flex;
 position: relative;
 }
