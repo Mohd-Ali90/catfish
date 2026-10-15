@@ -2,12 +2,25 @@ console.log('javascript is running')
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let route = ['','',['','','','','','','','','','','',''],'','','',['','','','','','','','','','','','']]
+let route = [
+    '',''
+    ['','','','','','','','','','','']
+    ,'','',
+    ['','','','','','','','','','',''],
+    '',
+    ['','','','','','','','','','',''],
+    '','',
+    ['','','','','','','','','','','']
+]
 
 /*------------------------ Cached Element References ------------------------*/
-const mainRouteElements = document.querySelector('.mainRoute')
+const routeElements = document.querySelectorAll('.tile')
 
-console.log(mainRouteElements)
+// routeElements.sort((a-b)=>{
+//     return Number(a.textContent)
+// })
+
+console.log(routeElements)
 
 
 /*-------------------------------- Functions --------------------------------*/

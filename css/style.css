@@ -84,3 +84,12 @@ background-color: white;
 #move-right{
     font-size: 27px;
 }
+#new-game-button{
+    font-size: large;
+    padding: 25px;
+}
+#roll-button{
+    margin-left: 20px;
+    font-size: large;
+    padding: 25px;
+}
