@@ -1,5 +1,10 @@
 body{
-    background-color: gainsboro;
+    background-color: white;
+}
+
+#board-area{
+     border: 3px solid #333333; 
+     background-color: gainsboro;
 }
 
 .mainRoute {
@@ -51,33 +56,3 @@ display: flex;
 position: relative;
 }
 
-
-
-
-
-
-
-
-
-
-/*
-
-#main-div{
-    display: flex;
-    flex-direction: column;
-    width: 100vw
-}
-
-.first-route{
-    display: flex;
-    flex-direction: row;
-}
-
-.second-route{
-    margin-left: 106px
-}
-
-.third-route{
-    margin-left:319px
-}
-    */
