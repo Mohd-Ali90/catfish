@@ -1,20 +1,30 @@
 console.log('javascript is running')
 
+/*-------------------------------- Constants --------------------------------*/
+const routeCondition = ['', 'over',
+    ['up', 'up', 'over', 'down', 'up', 'fish', 'over', 'up', 'up', 'over', 'up','down']
+    , 'over', 'right',
+    ['down', 'down', 'over', 'down', 'down', 'over', 'up', 'up', 'over', 'over', 'up','fish'],
+    'fish',
+    ['up', 'fish', 'up', 'up', 'over', 'fish', 'up', 'over', 'over', 'over', 'down','fish'],
+    'right', 'over',
+    ['down', 'down', 'down', 'over', 'over', 'fish', 'up', 'over', 'fish', 'over', 'over','over']]
+
 /*---------------------------- Variables (state) ----------------------------*/
 
 let route = ['p', '',
-    ['', '', '', '', '', '', '', '', '', '', '']
+    ['', '', '', '', '', '', '', '', '', '', '','']
     , '', '',
-    ['', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '',''],
     '',
-    ['', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '',''],
     '', '',
-    ['', '', '', '', '', '', '', '', '', '', '']]
+    ['', '', '', '', '', '', '', '', '', '', '','']]
 let playerPosition = 0
 let inInnerArray = false
 let dice = null
 let innerArrayIndex = null
-
+let currentPlaceOnBoard = 0
 /*------------------------ Cached Element References ------------------------*/
 const routeElements = document.querySelectorAll('.tile')
 
@@ -22,19 +32,19 @@ const rollButtonElement = document.querySelector('#roll-button')
 
 const sortedRouteElements = [...routeElements]
 sortedRouteElements.sort((a, b) => Number(a.id) - Number(b.id))
-
-console.log(routeElements)
-console.log(sortedRouteElements)
 console.log(rollButtonElement)
 console.log(route)
 
 /*-------------------------------- Functions --------------------------------*/
 
 
+
 function init() {
     rollDice()
     movePlayer()
+    console.log(routeCondition[playerPosition])
 }
+
 
 function rollDice() {
     dice = Math.floor(Math.random() * 11)
@@ -46,16 +56,13 @@ function movePlayer() {
 
     if (playerPosition + dice >= route.length - 1) {
                 route.splice(playerPosition, 1, '')
-
         playerPosition = route.length - 1
         route.splice(playerPosition, 1, 'p')
-
         console.log('now the player is at: ' + playerPosition)
         console.log(route)
         console.log(inInnerArray)
-
+        console.log(route)
         return
-
     }
     if (inInnerArray) {
 
@@ -72,10 +79,8 @@ function movePlayer() {
         console.log('now the player is at: ' + playerPosition)
         inInnerArray = true
         innerArrayIndex = playerPosition
-
         console.log(route)
         console.log(inInnerArray)
-
         return
     }
     else {
@@ -84,10 +89,17 @@ function movePlayer() {
 
     route.splice(playerPosition, 1, 'p')
 
+
+
     console.log('now the player is at: ' + playerPosition)
     console.log(route)
     console.log(inInnerArray)
+    
 }
+
+
+
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 rollButtonElement.addEventListener('click', init)
