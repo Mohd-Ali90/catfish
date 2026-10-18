@@ -2,137 +2,134 @@ console.log('javascript is running')
 
 /*-------------------------------- Constants --------------------------------*/
 const tileCondition = ['', 'over',
-    'up', 'up', 'over', 'down', 'up', 'fish', 'over', 'up', 'up', 'over', 'up','down'
+    'up', 'up', 'over', 'down', 'up', 'fish', 'over', 'up', 'up', 'over', 'up', 'down'
     , 'over', 'right',
-    'down', 'down', 'over', 'down', 'down', 'over', 'up', 'up', 'over', 'over', 'up','fish',
+    'down', 'down', 'over', 'down', 'down', 'over', 'up', 'up', 'over', 'over', 'up', 'fish',
     'fish',
-    'up', 'fish', 'up', 'up', 'over', 'fish', 'up', 'over', 'over', 'over', 'down','fish',
+    'up', 'fish', 'up', 'up', 'over', 'fish', 'up', 'over', 'over', 'over', 'down', 'fish',
     'right', 'over',
-    'down', 'down', 'down', 'over', 'over', 'fish', 'up', 'over', 'fish', 'over', 'over','over']
+    'down', 'down', 'down', 'over', 'over', 'fish', 'up', 'over', 'fish', 'over', 'over', 'over']
 
 /*---------------------------- Variables (state) ----------------------------*/
 
 let route = ['p', '',
-    '', '', '', '', '', '', '', '', '', '', '',''
+    '', '', '', '', '', '', '', '', '', '', '', ''
     , '', '',
-    '', '', '', '', '', '', '', '', '', '', '','',
+    '', '', '', '', '', '', '', '', '', '', '', '',
     '',
-    '', '', '', '', '', '', '', '', '', '', '','',
+    '', '', '', '', '', '', '', '', '', '', '', '',
     '', '',
-    '', '', '', '', '', '', '', '', '', '', '','']
+    '', '', '', '', '', '', '', '', '', '', '', '']
 let playerPosition = 0
-let inInnerArray = false
-let dice = null
-//let innerArrayIndex = null
-let currentPlaceOnBoard = 0
-let nextRollUp = null
-let nextRollDown = null
+let currentRoll = null
+let previousRoll = null
+let previousPositon = 0
+let nextRollForward = true
+let nextRollBackward = false
+let gameOver = null
 /*------------------------ Cached Element References ------------------------*/
 const routeElements = document.querySelectorAll('.tile')
-
 const rollButtonElement = document.querySelector('#roll-button')
-
+const newGameButtonElement = document.querySelector('#new-game-button')
 const sortedRouteElements = [...routeElements]
 sortedRouteElements.sort((a, b) => Number(a.id) - Number(b.id))
-console.log(rollButtonElement)
-console.log(route)
+const catElement = document.querySelector('#cat')
 
 /*-------------------------------- Functions --------------------------------*/
 
 
+console.log('Starting player position: ' + playerPosition)
 
-function init() {
+function newGame(){
+playerPosition = 0
+ currentRoll = null
+previousRoll = null
+previousPositon = 0
+nextRollForward = true
+nextRollBackward = false
+ gameOver = null
+ rollButtonElement.disabled=false
+
+}
+
+function roll() {
     rollDice()
-    movePlayer()
-     checkTileCondition()
 }
 
 
 function rollDice() {
-    dice = Math.floor(Math.random() * 11)
-    console.log(dice)
+    currentRoll = Math.floor(Math.random() * 12)
+    console.log('First roll: ', currentRoll)
+    movePlayer(currentRoll)
 }
 
-function movePlayer() {
-    if (playerPosition + dice >= route.length - 1) {
-        route.splice(playerPosition, 1, '')
-        playerPosition = route.length - 1
-        route.splice(playerPosition, 1, 'p')
-        console.log('now the player is at: ' + playerPosition)
-        console.log(route)
-        console.log(inInnerArray)
-        console.log(route)
-        return
+function movePlayer(currentRoll) {
+     previousPositon = playerPosition
+    if (nextRollForward === true) {
+        playerPosition = playerPosition += currentRoll
+    } else {
+        playerPosition = playerPosition -= currentRoll
     }
-    
-    // route.forEach((position) => {
-    //     if (playerPosition === 2) {
-    //         position[2].splice(playerPosition, 1, '')
-    //         playerPosition = route.length - 1
-    //         route.splice(playerPosition, 1, 'p')
-    //     }
-        
-    //     })
-    if (inInnerArray) {
-
-    }
-    console.log('the player was at' + playerPosition)
-
-    route.splice(playerPosition, 1, '')
-    playerPosition = playerPosition + dice
-
-
-    if (Array.isArray(route[playerPosition])) {
-        console.log('You are in array')
-        route[playerPosition].splice(0, 1, 'p')
-        console.log('now the player is at: ' + playerPosition)
-        inInnerArray = true
-        innerArrayIndex = playerPosition
-        console.log(route)
-        console.log(inInnerArray)
-        return
-    }
-    else {
-        console.log('not in array')
-    }
-
-    route.splice(playerPosition, 1, 'p')
-
-    console.log('now the player is at: ' + playerPosition)
-    console.log(route)
-    console.log(inInnerArray)
-}
-
-function checkTileCondition()
-{
- if (tileCondition[playerPosition]==='over' || tileCondition[[]]==='over'){
-    console.log('You fell in a hole, game over')
- } 
-
-  if (tileCondition[playerPosition]==='up'){
-    console.log('Next roll will send you up on board')
-    nextRollUp = true
-    nextRollDown = false
- } 
-
-  if (tileCondition[playerPosition]==='down'){
-    console.log('Next roll will send you down on board')
-    nextRollDown = true
-    nextRollUp = false
- } 
-
-  if (tileCondition[playerPosition]==='right'){
-    console.log('Next roll will send you right on board')
- } 
-
-  if (tileCondition[playerPosition]==='fish'){
-    console.log('You found the fish, Delicious!')
- } 
-
+    updateBoard()
+    checkPlayerPosition()
 }
 
 
 
+function checkPlayerPosition() {
+    console.log('New player position: ' + playerPosition)
+    previousRoll = currentRoll
+    console.log('Previous roll now is: ', previousRoll)
+    currentRoll = 0;
+    console.log('Current roll now is: ', currentRoll)
+    checkTileCondition()
+    checkGameOver()
+}
+
+function checkTileCondition() {
+    if (tileCondition[playerPosition] === 'over') {
+        console.log('You fell in a hole, game over')
+        gameOver = true
+    }
+
+    if (tileCondition[playerPosition] === 'up') {
+        console.log('Next roll will send you up on board')
+        nextRollForward = true
+        nextRollBackward = false
+    }
+
+    if (tileCondition[playerPosition] === 'down') {
+        console.log('Next roll will send you down on board')
+        nextRollBackward = true
+        nextRollForward = false
+    }
+
+    if (tileCondition[playerPosition] === 'right') {
+        console.log('Next roll will send you right on board')
+    }
+
+    if (tileCondition[playerPosition] === 'fish') {
+        console.log('You found the fish, Delicious!')
+    }
+
+}
+
+function updateBoard() {
+    for (onePlace of sortedRouteElements) {
+        if (playerPosition) {
+
+            sortedRouteElements[playerPosition].textContent = '🐈'
+        }
+
+    }
+}
+
+function checkGameOver(){
+    if (gameOver === true) {
+        rollButtonElement.disabled=true
+    }
+}
 
 /*----------------------------- Event Listeners -----------------------------*/
-rollButtonElement.addEventListener('click', init)
+rollButtonElement.addEventListener('click', roll)
+newGameButtonElement.addEventListener('click', newGame)

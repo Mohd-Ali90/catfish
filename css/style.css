@@ -93,3 +93,8 @@ background-color: white;
     font-size: large;
     padding: 25px;
 }
+
+#cat{
+    visibility: hidden;
+    size:27px;
+}
