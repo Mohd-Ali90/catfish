@@ -6,7 +6,7 @@ body{
     align-items: center;
      border: 3px solid #333333; 
      background-color: gainsboro;
-     padding-left: 100px;
+     padding-left: 500px;
 }
 
 .mainRoute {
@@ -94,7 +94,7 @@ background-color: white;
     padding: 25px;
 }
 
-#cat{
-    visibility: hidden;
-    size:27px;
+
+.catPosition {
+    size: 27px;
 }
