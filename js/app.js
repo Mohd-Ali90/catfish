@@ -10,16 +10,17 @@ const tileCondition = ['', 'over',
     'fish', 'over',
     'down', 'down', 'down', 'over', 'over', 'fish', 'up', 'over', 'fish', 'over', 'over', 'over']
 
+
 /*---------------------------- Variables (state) ----------------------------*/
 
-let route = ['p', '',
-    '', '', '', '', '', '', '', '', '', '', '', ''
-    , '', '',
-    '', '', '', '', '', '', '', '', '', '', '', '',
-    '',
-    '', '', '', '', '', '', '', '', '', '', '', '',
-    '', '',
-    '', '', '', '', '', '', '', '', '', '', '', '']
+// let route = ['p', '',
+//     '', '', '', '', '', '', '', '', '', '', '', ''
+//     , '', '',
+//     '', '', '', '', '', '', '', '', '', '', '', '',
+//     '',
+//     '', '', '', '', '', '', '', '', '', '', '', '',
+//     '', '',
+//     '', '', '', '', '', '', '', '', '', '', '', '']
 
 let playerPosition = 0
 let currentRoll = null
@@ -34,9 +35,21 @@ const rollButtonElement = document.querySelector('#roll-button')
 const newGameButtonElement = document.querySelector('#new-game-button')
 const sortedRouteElements = [...routeElements]
 sortedRouteElements.sort((a, b) => Number(a.id) - Number(b.id))
+const rulesButtonElement = document.getElementById('rules-button')
+const rulesTextElement = document.getElementById('rules')
 
 /*-------------------------------- Functions --------------------------------*/
 
+function showRules(){
+if (rulesTextElement.style.visibility === 'visible') {
+    rulesTextElement.style.visibility = 'hidden'
+    
+} else if (rulesTextElement.style.visibility === 'hidden') {
+    rulesTextElement.style.visibility = 'visible'
+    
+}
+
+}
 
 console.log('Starting player position: ' + playerPosition)
 
@@ -68,8 +81,13 @@ function movePlayer(currentRoll) {
         previousPositon = playerPosition
         playerPosition = playerPosition += currentRoll
     } else {
-        previousPositon = playerPosition
-        playerPosition = playerPosition -= currentRoll
+        if (playerPosition === 5 && currentRoll > 5) {
+            playerPosition = 0
+            console.log('you tried to go outside')
+        } else {
+            previousPositon = playerPosition
+            playerPosition = playerPosition -= currentRoll
+        }
     }
     updateBoard()
     checkPlayerPosition()
@@ -142,3 +160,4 @@ function checkGameOver(){
 /*----------------------------- Event Listeners -----------------------------*/
 rollButtonElement.addEventListener('click', roll)
 newGameButtonElement.addEventListener('click', newGame)
+rulesButtonElement.addEventListener('click',showRules)

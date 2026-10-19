@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project-1 Catfish</title>
-    <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
-
-  </head>
+    <link rel="stylesheet" href="./css/style.css">
+ </head>
 
   <body>
     <section id="board-area">
       <div class="upper-routes">
         <div class="first-route">
-          <div id="3" class="tile">3 ▲</div>
+          <div id="3" class="tile">3▲</div>
           <div id="4" class="tile">4</div>
           <div id="5" class="tile">5 ▼</div>
           <div id="6" class="tile">6 ▲</div>
@@ -46,7 +45,7 @@
 
       <div class="main-div">
         <div class="main-route">
-          <div id="0" class="tile">0 <span id="move-right"> Start▶</span></div>
+          <div id="0" class="tile"><span id="move-right">Start</span></div>
           <div id="1" class="tile">1</div>
           <div id="2" class="tile">2 ▲</div>
           <div id="14" class="tile">14</div>
@@ -87,11 +86,26 @@
             <div id="54" class="tile">54</div>
           </div>
         </div>
+      
     </section>
     
    <br>
     <button id="new-game-button">New Game</button>
     <button id="roll-button">Roll</button>
-  </body>
+    <button id="rules-button">Show/Hide RUles</button>
 
+<!-- The element that starts hidden -->
+<div id="rules" style="visibility: visible;">
+  <p>Welcome to CatFish</p>
+   <p>Roll the die to move the cat 🐈 around the board.The rules are as follows:-</p>
+    <p> 1- If you land on 🟥, your next roll will move you higher on the board</p>
+     <p>2- If you land on 🟦, your next roll will move you lower on the board</p>
+     <p>3- If you land on ⬛, you have fallen into a hole and the game is over. You may start a new game</p>
+    <p> 4- If you land on 🐠, you have found a fish - Delicious. You may roll again, you never know.</p>
+</div>
+  
+   </div>
+
+
+  </body>
   </html>
