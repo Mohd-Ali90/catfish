@@ -37,7 +37,7 @@ const sortedRouteElements = [...routeElements]
 sortedRouteElements.sort((a, b) => Number(a.id) - Number(b.id))
 const rulesButtonElement = document.getElementById('rules-button')
 const rulesTextElement = document.getElementById('rules')
-
+const messageElement = document.querySelector('#message')
 /*-------------------------------- Functions --------------------------------*/
 
 function showRules(){
@@ -54,7 +54,7 @@ if (rulesTextElement.style.visibility === 'visible') {
 console.log('Starting player position: ' + playerPosition)
 
 function newGame(){
-
+messageElement.textContent=''
 playerPosition = 0
 currentRoll = null
 previousRoll = null
@@ -63,9 +63,11 @@ nextRollBackward = false
  gameOver = null
  rollButtonElement.disabled=false
  updateBoard()
+ 
 }
 
 function roll() {
+    messageElement.textContent=''
     rollDice()
 }
 
@@ -91,6 +93,7 @@ function movePlayer(currentRoll) {
     }
     updateBoard()
     checkPlayerPosition()
+    // updateMessage()
 }
 
 
@@ -109,17 +112,21 @@ function checkPlayerPosition() {
 function checkTileCondition() {
     if (tileCondition[playerPosition] === 'over') {
         console.log('You fell in a hole, game over')
+        messageElement.textContent = `You fell into a whole game over`
         gameOver = true
+    
     }
 
     if (tileCondition[playerPosition] === 'up') {
         console.log('Next roll will send you up on board')
+        messageElement.textContent = `Landed on red, next roll will send you higher`
         nextRollForward = true
         nextRollBackward = false
     }
 
     if (tileCondition[playerPosition] === 'down') {
         console.log('Next roll will send you down on board')
+         messageElement.textContent = `Landed on blue, next roll will send you lower`
         nextRollBackward = true
         nextRollForward = false
     }
@@ -156,6 +163,14 @@ function checkGameOver(){
         rollButtonElement.disabled=true
     }
 }
+
+// function updateMessage() {
+//     if (sortedRouteElements[playerPosition] === 'hole') {
+        
+//     }
+// }
+
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 rollButtonElement.addEventListener('click', roll)
