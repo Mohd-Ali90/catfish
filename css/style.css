@@ -1,7 +1,7 @@
 
 
 body{
-    background-color: white;
+    background-color: gainsboro;
 }
 
 #board-area{
@@ -118,4 +118,12 @@ background-color: white;
 
 .catPosition {
     size: 20px;
+}
+
+#message{
+    font-size: 25px;
+}
+
+#rules-text{
+    font-size: 25px;
 }
