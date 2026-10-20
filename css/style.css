@@ -55,9 +55,8 @@ position: relative;
 .fourth-route{
     display: inline-flex;
 flex-direction: column;
-margin: 4px 0 0px 421px;
+margin: 4px 0 0px 417px;
 position: relative;
-
 }
 
 .upper-routes{
@@ -66,7 +65,7 @@ position: relative;
 }
 
 .lower-routes{
-display: inline-flex;
+display: relative;
 position: fixed;
 }
 
