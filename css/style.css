@@ -32,6 +32,7 @@ body{
 display: flex;
 flex-direction: column-reverse;
 margin: 0 0 4px 208px;
+position: relative;
 
 }
 
@@ -40,6 +41,7 @@ margin: 0 0 4px 208px;
 display: flex;
 flex-direction: column;
 margin: 4px 0 0 519px;
+position: relative;
 }
 
 
@@ -47,12 +49,14 @@ margin: 4px 0 0 519px;
     display: flex;
 flex-direction: column-reverse;
 margin: 0 0 4px 420px;
+position: relative;
 }
 
 .fourth-route{
     display: flex;
 flex-direction: column;
 margin: 4px 0 0px 421px;
+position: relative;
 
 }
 
@@ -89,9 +93,6 @@ background-color: white;
     font-size: 27px;
 }
 
-#move-right{
-    font-size: 27px;
-}
 #new-game-button{
     font-size: large;
     padding: 25px;
