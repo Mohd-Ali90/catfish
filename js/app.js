@@ -13,15 +13,6 @@ const tileCondition = ['', 'over',
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-// let route = ['p', '',
-//     '', '', '', '', '', '', '', '', '', '', '', ''
-//     , '', '',
-//     '', '', '', '', '', '', '', '', '', '', '', '',
-//     '',
-//     '', '', '', '', '', '', '', '', '', '', '', '',
-//     '', '',
-//     '', '', '', '', '', '', '', '', '', '', '', '']
-
 let playerPosition = 0
 let currentRoll = null
 let previousRoll = null
@@ -38,6 +29,7 @@ sortedRouteElements.sort((a, b) => Number(a.id) - Number(b.id))
 const rulesButtonElement = document.getElementById('rules-button')
 const rulesTextElement = document.getElementById('rules')
 const messageElement = document.querySelector('#message')
+const rollMessageElement = document.querySelector('#roll')
 /*-------------------------------- Functions --------------------------------*/
 
 function showRules(){
@@ -55,6 +47,7 @@ console.log('Starting player position: ' + playerPosition)
 
 function newGame(){
 messageElement.textContent=''
+rollMessageElement.textContent=''
 playerPosition = 0
 currentRoll = null
 previousRoll = null
@@ -75,32 +68,33 @@ function roll() {
 function rollDice() {
     currentRoll = Math.floor(Math.random() * 12)
    console.log('Roll: ', currentRoll)
+   rollMessageElement.textContent= `You rolled:${currentRoll}`
     movePlayer(currentRoll)
 }
 
 function movePlayer(currentRoll) {
-    if (nextRollForward === true) {
+    if (nextRollForward === true || playerPosition === 0) {
         previousPositon = playerPosition
         playerPosition = playerPosition += currentRoll
     } else {
-        if (playerPosition === 5 && currentRoll > 5) {
+        if (playerPosition === 5 && currentRoll > 5 ) {
             playerPosition = 0
             console.log('you tried to go outside')
-        } else {
+        } 
+        else{
             previousPositon = playerPosition
             playerPosition = playerPosition -= currentRoll
         }
     }
     updateBoard()
     checkPlayerPosition()
-    // updateMessage()
+
 }
 
 
 
 function checkPlayerPosition() {
     currentRoll = 0;
-    // console.log('Current roll now is: ', currentRoll)
     previousRoll = currentRoll
     console.log('Previous roll now is: ', previousRoll)
 
@@ -144,15 +138,12 @@ function updateBoard(){
         previousCatPosition.remove()
     }
 
-    // Retrieved the html div based on the current player position index
     const currentCatPosition = sortedRouteElements[playerPosition]
 
-    // Created a new element to append to the div container that contains the cat
     const cat = document.createElement("span")
     cat.textContent = '🐈'
     currentCatPosition.appendChild(cat)
 
-    // Added a class to the span so we can cache the element based on class name and then remove it
     cat.classList.add('catPosition')
     console.log(currentCatPosition)
 
@@ -163,12 +154,6 @@ function checkGameOver(){
         rollButtonElement.disabled=true
     }
 }
-
-// function updateMessage() {
-//     if (sortedRouteElements[playerPosition] === 'hole') {
-        
-//     }
-// }
 
 
 

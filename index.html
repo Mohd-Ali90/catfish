@@ -11,6 +11,7 @@
 
   <body>
     <section id="board-area">
+      
       <div class="upper-routes">
         <div class="first-route">
           <div id="3" class="tile">3▲</div>
@@ -89,25 +90,27 @@
       
     </section>
     
-   <br>
+   <p id="s">Score:<p id="score"></p></p>  <p id="roll"></p> 
+    <section id="buttons">
     <button id="new-game-button">New Game</button>
     <button id="roll-button">Roll</button>
-    <button id="rules-button">Show/Hide RUles</button>
+    <button id="rules-button">Show/Hide Rules</button>
+    <p id="message"></p> 
+    </section>
+     
 
-     <p id="message"></p>
 
-<!-- The element that starts hidden -->
-<div id="rules" style="visibility: hidden;">
-  <p><span id="rules-text">Welcome to CatFish</span></p>
-   <p><span id="rules-text">Roll the die to move the cat 🐈 around the board.The rules are as follows:-</span></p>
+   <div id="rules" style="visibility: hidden;">
+    <p><span id="rules-text">Welcome to CatFish</span></p>
+    <p><span id="rules-text">Roll the die to move the cat 🐈 around the board.The rules are as follows:-</span></p>
     <p><span id="rules-text">1- If you land on 🟥, your next roll will move you higher on the board.</span></p>
      <p><span id="rules-text">2- If you land on 🟦, your next roll will move you lower on the board.</span></p>
      <p><span id="rules-text">3- If you land on ⬛, you have fallen into a hole and the game is over. You may start a new game.</span></p>
     <p><span id="rules-text">4- If you land on 🐠, you have found a fish - Delicious. You may roll again, you never know.</span></p>
-</div>
+    </div>
   
    </div>
 
        
-  </body>
+   </body>
   </html>
