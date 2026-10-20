@@ -13,6 +13,10 @@ Good luck.
 2. CSS
 3. Javascript
 
+## Screenshots
+![Screenshot 1](/projects/catfish/screenshots/screenshot%201.PNG)
+![Screenshot 2](/projects/catfish/screenshots/screenshot%202.PNG)
+
 ## User Stories 
 
 1. As a user, I want to see the path that I can move along.
@@ -24,5 +28,28 @@ Good luck.
 7. As a user, I expect to win if I find 3 fish. 
 8. As a user, I expect the 'Show/Hide rules' button to function accordingly.
 
-## contact 
+## Contact 
 man_almahdi@hotmail.com
+
+## Most challenging
+The biggest challenge was associated with moving the cat
+
+- Updating the cat position on the board.
+- When a roll lands on blue , if the the following roll is higher than the available spaces it would break the game.
+- When a roll lands on blue and then goes to fish, if the following roll is higher than the available spaces it would break the game.
+
+## Favorite part
+The randomness of the game can be funny
+
+## Future additions/implementation
+
+- Redo visuals of the page to blend together better and changing overall sizing on page.
+- Add sound effects.
+- Rearrange tiles to improve game flow.
+
+## Credits
+- Zaid assisted with the code to determine previous and next rolls and code to append the catElement.
+- Zaid provided the background image.
+- Game is based on a paper based game I made before.
+
+

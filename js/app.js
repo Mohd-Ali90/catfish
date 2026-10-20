@@ -98,7 +98,6 @@ function movePlayer(currentRoll) {
 
 
 function checkPlayerPosition() {
-    currentRoll = 0;
     previousRoll = currentRoll
     console.log('Previous roll now is: ', previousRoll)
 
