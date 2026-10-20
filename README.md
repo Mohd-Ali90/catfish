@@ -14,8 +14,8 @@ Good luck.
 3. Javascript
 
 ## Screenshots
-![Screenshot1](./screenshots/screenshot1.png)
-![Screenshot2](./screenshots/screenshot2.png)
+![Screenshot 1](screenshot1.PNG)
+![Screenshot 2](screenshot2.PNG)
 
 ## User Stories 
 
