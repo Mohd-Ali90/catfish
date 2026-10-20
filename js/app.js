@@ -20,6 +20,7 @@ let previousPositon = 0
 let nextRollForward = true
 let nextRollBackward = false
 let gameOver = null
+let fishFound = 0
 /*------------------------ Cached Element References ------------------------*/
 const routeElements = document.querySelectorAll('.tile')
 const rollButtonElement = document.querySelector('#roll-button')
@@ -30,6 +31,7 @@ const rulesButtonElement = document.getElementById('rules-button')
 const rulesTextElement = document.getElementById('rules')
 const messageElement = document.querySelector('#message')
 const rollMessageElement = document.querySelector('#roll')
+const scoreTextElement = document.querySelector('#score')
 /*-------------------------------- Functions --------------------------------*/
 
 function showRules(){
@@ -48,6 +50,8 @@ console.log('Starting player position: ' + playerPosition)
 function newGame(){
 messageElement.textContent=''
 rollMessageElement.textContent=''
+fishFound = 0
+scoreTextElement.textContent = ``
 playerPosition = 0
 currentRoll = null
 previousRoll = null
@@ -73,7 +77,7 @@ function rollDice() {
 }
 
 function movePlayer(currentRoll) {
-    if (nextRollForward === true || playerPosition === 0) {
+    if (nextRollForward === true || playerPosition === 0 ||tileCondition[playerPosition] === 'fish' ) {
         previousPositon = playerPosition
         playerPosition = playerPosition += currentRoll
     } else {
@@ -126,7 +130,16 @@ function checkTileCondition() {
     }
 
     if (tileCondition[playerPosition] === 'fish') {
+        if (fishFound < 3){
         console.log('You found the fish, Delicious!')
+        fishFound = fishFound + 1
+        messageElement.textContent = `You found a fish! Delicious.`
+        scoreTextElement.textContent = `${fishFound}`
+        } if( fishFound===3){
+            scoreTextElement.textContent = `${fishFound}`
+            messageElement.textContent = `You found 3 fish! You win!`
+            gameOver = true
+        }
     }
 }
 
@@ -154,6 +167,7 @@ function checkGameOver(){
         rollButtonElement.disabled=true
     }
 }
+
 
 
 

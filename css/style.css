@@ -1,20 +1,14 @@
-html{
-     width: 100%;
-  max-width: 1000px;
-}
 
 body{
-    background-color: gainsboro;       /* Spans the full width of the window */
+    background-color: gainsboro;      
 }
 
 #board-area{
    
      border: 3px solid #333333; 
-    /* background-color: gainsboro; */
     justify-content: center;
     background-image: url('../assets/lving-room-bg.png');
     background-repeat:no-repeat;
-    /* max-width:100%; */
     height: 910px;
     width: 1639px;
 }
@@ -138,10 +132,18 @@ background-color: white;
     font-size: 20px;
 }
 
+#score{
+    font-size: 20px;
+}
+
 #roll{
     font-size:18px;
 }
 
 #buttons{
+    display: flex;
+}
+
+#score-text{
     display: flex;
 }
