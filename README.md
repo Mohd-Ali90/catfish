@@ -22,7 +22,7 @@ Good luck.
 5. As a user, if I land on a blue square I expect that the next roll will move the player lower.
 6. As a user ,if I land on a 'Fish' square I expect to gain +1 score (Fish counter).
 7. As a user, I expect to win if I find 3 fish. 
-8. As a usr, I expect the 'Show/Hide rules' button to function accordingly.
+8. As a user, I expect the 'Show/Hide rules' button to function accordingly.
 
 ## contact 
 man_almahdi@hotmail.com
