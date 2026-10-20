@@ -16,11 +16,11 @@ body{
 .mainRoute {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    position: relative;
 }
 
 .tile {
-    display:inline-block;
+    display:inline-flex;
     width: 100px;
     outline: 3px solid black;
     font-size: 32px;
@@ -38,7 +38,7 @@ position: relative;
 
 
 .second-route{
-display: flex;
+display: inline-flex;
 flex-direction: column;
 margin: 4px 0 0 519px;
 position: relative;
@@ -53,7 +53,7 @@ position: relative;
 }
 
 .fourth-route{
-    display: flex;
+    display: inline-flex;
 flex-direction: column;
 margin: 4px 0 0px 421px;
 position: relative;
@@ -66,8 +66,8 @@ position: relative;
 }
 
 .lower-routes{
-display: flex;
-position: relative;
+display: inline-flex;
+position: fixed;
 }
 
 [id='0'],[id='7'],[id='15'],[id='28'],[id='27'],[id='30'],[id='34'],[id='40'],[id='41'],[id='48'],[id='51']{
@@ -116,7 +116,7 @@ background-color: white;
 
 
 .catPosition {
-    size: 20px;
+    font-size: 25px;
 }
 
 #message{
