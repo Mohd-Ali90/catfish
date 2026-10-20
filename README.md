@@ -14,8 +14,8 @@ Good luck.
 3. Javascript
 
 ## Screenshots
-![Screenshot 1](/projects/catfish/screenshots/screenshot1.PNG)
-![Screenshot 2](/projects/catfish/screenshots/screenshot2.PNG)
+![Screenshot1](./screenshots/screenshot1.png)
+![Screenshot2](./screenshots/screenshot2.png)
 
 ## User Stories 
 
