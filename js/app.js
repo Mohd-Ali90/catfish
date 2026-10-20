@@ -99,6 +99,7 @@ function movePlayer(currentRoll) {
 
 function checkPlayerPosition() {
     previousRoll = currentRoll
+    currentRoll=0
     console.log('Previous roll now is: ', previousRoll)
 
     console.log('New player position: ' + playerPosition)
